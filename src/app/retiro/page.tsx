@@ -1,3 +1,4 @@
+import RetirementFeatures from "@/components/funnels/retiro/RetirementFeatures";
 import TaxBenefits from "@/components/funnels/retiro/TaxBenefits";
 import HeroSection from "@/components/ui/HeroSection";
 import LeadForm from "@/components/shared/LeadForm";
@@ -15,6 +16,7 @@ export default function RetiroPage() {
         glowClass="bg-emerald-600"
         btnClass="bg-emerald-500 hover:bg-emerald-400 text-white"
       />
+      <RetirementFeatures />
       <TrustBar />
       <TaxBenefits />
       <LeadForm btnClass="bg-emerald-500 hover:bg-emerald-400 text-white" funnelName="Retiro y Ley 171-07" />

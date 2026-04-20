@@ -1,3 +1,4 @@
+import CorporateFeatures from "@/components/funnels/corporativo/CorporateFeatures";
 import ComparativeMatrix from "@/components/funnels/corporativo/ComparativeMatrix";
 import HeroSection from "@/components/ui/HeroSection";
 import LeadForm from "@/components/shared/LeadForm";
@@ -15,6 +16,7 @@ export default function CorporativoPage() {
         glowClass="bg-blue-600"
         btnClass="bg-blue-500 hover:bg-blue-400 text-white"
       />
+      <CorporateFeatures />
       <TrustBar />
       <ComparativeMatrix />
       <LeadForm btnClass="bg-blue-500 hover:bg-blue-400 text-white" funnelName="Corporativo a Largo Plazo" />

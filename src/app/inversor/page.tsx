@@ -1,4 +1,6 @@
 import RoiCalculator from "@/components/funnels/inversor/RoiCalculator";
+import SocialProof from "@/components/funnels/inversor/SocialProof";
+import Testimonials from "@/components/funnels/inversor/Testimonials";
 import HeroSection from "@/components/ui/HeroSection";
 import LeadForm from "@/components/shared/LeadForm";
 import TrustBar from "@/components/shared/TrustBar";
@@ -15,8 +17,10 @@ export default function InversorPage() {
         glowClass="bg-yellow-600"
         btnClass="bg-yellow-500 hover:bg-yellow-400 text-stone-950"
       />
+      <SocialProof />
       <TrustBar />
       <RoiCalculator />
+      <Testimonials />
       <LeadForm btnClass="bg-yellow-500 hover:bg-yellow-400 text-stone-950" funnelName="Vacacional Airbnb" />
       <MinimalFooter />
     </main>
