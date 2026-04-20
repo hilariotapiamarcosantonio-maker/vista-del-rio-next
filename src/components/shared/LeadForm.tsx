@@ -47,35 +47,40 @@ export default function LeadForm({ btnClass, funnelName }: { btnClass: string, f
             <p className="text-emerald-500/80 text-lg">Nuestro equipo de asesores se comunicará contigo en breve.</p>
           </motion.div>
         ) : (
-          <motion.form 
+          <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6, delay: 0.2 }}
-            onSubmit={handleSubmit} 
-            className="text-left bg-stone-900/60 p-8 md:p-10 rounded-3xl border border-stone-800 backdrop-blur-xl shadow-2xl space-y-6"
+            whileHover={{ scale: 1.01 }}
+            className="relative p-[1px] rounded-3xl bg-gradient-to-b from-stone-700 to-transparent shadow-2xl shadow-black/60"
           >
-            <div>
-              <label className="block text-sm font-medium text-stone-400 mb-2 tracking-wide uppercase">Nombre completo</label>
-              <input required type="text" name="nombre" value={formData.nombre} onChange={handleChange} className="w-full bg-stone-950/50 border border-stone-800 rounded-xl px-5 py-4 text-stone-200 focus:outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500 transition-all placeholder:text-stone-600" placeholder="Ej. Carlos Mendez" />
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <form 
+              onSubmit={handleSubmit} 
+              className="bg-stone-950/90 backdrop-blur-2xl p-8 md:p-10 rounded-[23px] text-left space-y-6"
+            >
               <div>
-                <label className="block text-sm font-medium text-stone-400 mb-2 tracking-wide uppercase">Correo electrónico</label>
-                <input required type="email" name="correo" value={formData.correo} onChange={handleChange} className="w-full bg-stone-950/50 border border-stone-800 rounded-xl px-5 py-4 text-stone-200 focus:outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500 transition-all placeholder:text-stone-600" placeholder="correo@empresa.com" />
+                <label className="block text-sm font-medium text-stone-400 mb-2 tracking-wide uppercase">Nombre completo</label>
+                <input required type="text" name="nombre" value={formData.nombre} onChange={handleChange} className="w-full bg-black/20 border border-stone-700/60 rounded-xl px-5 py-4 text-stone-200 focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-400/20 transition-all placeholder:text-stone-600" placeholder="Ej. Carlos Mendez" />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-stone-400 mb-2 tracking-wide uppercase">WhatsApp</label>
-                <input required type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleChange} className="w-full bg-stone-950/50 border border-stone-800 rounded-xl px-5 py-4 text-stone-200 focus:outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500 transition-all placeholder:text-stone-600" placeholder="+1 (809) 000-0000" />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-stone-400 mb-2 tracking-wide uppercase">Correo electrónico</label>
+                  <input required type="email" name="correo" value={formData.correo} onChange={handleChange} className="w-full bg-black/20 border border-stone-700/60 rounded-xl px-5 py-4 text-stone-200 focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-400/20 transition-all placeholder:text-stone-600" placeholder="correo@empresa.com" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-stone-400 mb-2 tracking-wide uppercase">WhatsApp</label>
+                  <input required type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleChange} className="w-full bg-black/20 border border-stone-700/60 rounded-xl px-5 py-4 text-stone-200 focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-400/20 transition-all placeholder:text-stone-600" placeholder="+1 (809) 000-0000" />
+                </div>
               </div>
-            </div>
-            {status === "error" && <p className="text-red-400 text-sm text-center">Hubo un error al enviar tus datos. Inténtalo de nuevo.</p>}
-            
-            <div className="pt-4">
-              <button type="submit" disabled={status === "loading"} className={`w-full flex items-center justify-center gap-3 py-5 rounded-xl text-lg font-medium transition-all shadow-lg hover:shadow-xl ${btnClass} disabled:opacity-70 group`}>
-                {status === "loading" ? "Procesando de forma segura..." : "Quiero mi Dossier Confidencial"} 
-                <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-            <p className="text-center text-xs text-stone-500 font-light mt-4">🔒 Tus datos son privados y están cifrados de extremo a extremo.</p>
-          </motion.form>
+              {status === "error" && <p className="text-red-400 text-sm text-center">Hubo un error al enviar tus datos. Inténtalo de nuevo.</p>}
+              
+              <div className="pt-4">
+                <button type="submit" disabled={status === "loading"} className={`w-full flex items-center justify-center gap-3 py-5 rounded-xl text-lg font-medium transition-all shadow-lg hover:shadow-xl ${btnClass} disabled:opacity-70 group`}>
+                  {status === "loading" ? "Procesando de forma segura..." : "Quiero mi Dossier Confidencial"} 
+                  <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+              <p className="text-center text-xs text-stone-500 font-light mt-4">🔒 Tus datos son privados y están cifrados de extremo a extremo.</p>
+            </form>
+          </motion.div>
         )}
       </div>
     </section>
