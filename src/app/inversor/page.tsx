@@ -1,19 +1,24 @@
 import RoiCalculator from "@/components/funnels/inversor/RoiCalculator";
-
-export const metadata = {
-  title: "Inversión Airbnb Caribe | Vista del Río",
-  description: "Genera hasta un 18% de retorno anual en dólares invirtiendo en apartamentos vacacionales en el Caribe.",
-};
+import HeroSection from "@/components/ui/HeroSection";
+import LeadForm from "@/components/shared/LeadForm";
+import TrustBar from "@/components/shared/TrustBar";
+import MinimalFooter from "@/components/shared/MinimalFooter";
 
 export default function InversorPage() {
   return (
     <main className="min-h-screen bg-stone-950">
-      {/* Aquí luego añadiremos el Hero Section del Inversor */}
-      <div className="pt-24 pb-12 text-center">
-        <h1 className="text-3xl text-stone-400 font-light">Embudo: <span className="text-yellow-600 font-medium">Inversionista Airbnb</span></h1>
-      </div>
-      
+      <HeroSection 
+        eyebrow="Inversión Inmobiliaria · República Dominicana"
+        title={<>Haz que tu dinero trabaje en el Caribe — <br/><span className="text-yellow-500 font-medium">hasta 18% de retorno anual</span></>}
+        subtitle="Apartamentos de lujo en destinos premium operados como alquiler vacacional. Ingreso pasivo real en dólares."
+        ctaText="Calcular mi ROI"
+        glowClass="bg-yellow-600"
+        btnClass="bg-yellow-500 hover:bg-yellow-400 text-stone-950"
+      />
+      <TrustBar />
       <RoiCalculator />
+      <LeadForm btnClass="bg-yellow-500 hover:bg-yellow-400 text-stone-950" funnelName="Vacacional Airbnb" />
+      <MinimalFooter />
     </main>
   );
 }
