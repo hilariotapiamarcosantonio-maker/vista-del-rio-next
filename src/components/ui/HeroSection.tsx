@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 interface HeroProps {
@@ -13,7 +13,7 @@ interface HeroProps {
 }
 
 export default function HeroSection({ eyebrow, title, subtitle, ctaText, glowClass, btnClass }: HeroProps) {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -31,7 +31,7 @@ export default function HeroSection({ eyebrow, title, subtitle, ctaText, glowCla
       filter: 'blur(0px)',
       transition: {
         duration: 0.5,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     },
   };
