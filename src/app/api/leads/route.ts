@@ -1,13 +1,15 @@
 import { NextResponse } from "next/server";
 
-// SUSTITUIR CON TU URL DE GOOGLE APPS SCRIPT
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyoyC_f2NCZh2tsu7SQSYxkQl8TnFTNXYmxiJbkgEOwYFZKdN5wzW2kAozL4EyERmef/exec"; 
+const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL;
 
 export async function POST(request: Request) {
+  if (!GOOGLE_SCRIPT_URL) {
+    return NextResponse.json({ error: "Configuración de CRM no disponible" }, { status: 500 });
+  }
+
   try {
     const body = await request.json();
     
-    // Validación de seguridad básica
     if (!body.nombre || !body.whatsapp) {
       return NextResponse.json({ error: "Datos incompletos" }, { status: 400 });
     }

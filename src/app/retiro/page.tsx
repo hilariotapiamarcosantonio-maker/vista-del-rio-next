@@ -1,11 +1,15 @@
 import RetirementFeatures from "@/components/funnels/retiro/RetirementFeatures";
 import TaxBenefits from "@/components/funnels/retiro/TaxBenefits";
 import HeroSection from "@/components/ui/HeroSection";
+import Gallery from "@/components/ui/Gallery";
 import LeadForm from "@/components/shared/LeadForm";
 import TrustBar from "@/components/shared/TrustBar";
 import MinimalFooter from "@/components/shared/MinimalFooter";
+import { IMAGES_VISTA_DEL_RIO } from "@/lib/constants";
 
 export default function RetiroPage() {
+  const heroImage = IMAGES_VISTA_DEL_RIO.frente[2];
+
   return (
     <main className="min-h-screen bg-stone-950">
       <HeroSection 
@@ -15,7 +19,10 @@ export default function RetiroPage() {
         ctaText="Conocer el proyecto"
         glowClass="bg-emerald-600"
         btnClass="bg-emerald-500 hover:bg-emerald-400 text-white"
+        imageSrc={heroImage.src}
+        imageAlt={heroImage.alt}
       />
+      <Gallery glowClass="bg-emerald-600/10" activeColorClass="bg-emerald-500 text-white font-medium" />
       <RetirementFeatures />
       <TrustBar />
       <TaxBenefits />
@@ -24,3 +31,4 @@ export default function RetiroPage() {
     </main>
   );
 }
+
